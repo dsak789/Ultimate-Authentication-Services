@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ultimate Authentication",
+    "description": "Ultimate Authentication provider for small scale appilcations",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9999/"
+    }
+  ],
+  "paths": {
+    "/api/user/auth": {
+      "get": {
+        "tags": [
+          "User Authentication"
+        ],
+        "summary": "Get user",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User Authentication"
+        ],
+        "summary": "Register user",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
