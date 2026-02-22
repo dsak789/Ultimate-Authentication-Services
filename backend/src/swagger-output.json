@@ -11,19 +11,21 @@
     }
   ],
   "paths": {
-    "/api/user/auth": {
+    "/": {
       "get": {
         "tags": [
-          "User Authentication"
+          "Home"
         ],
-        "summary": "Get user",
+        "summary": "Api Running Check",
         "description": "",
         "responses": {
           "200": {
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/users/register": {
       "post": {
         "tags": [
           "User Authentication"
@@ -31,8 +33,136 @@
         "summary": "Register user",
         "description": "",
         "responses": {
+          "201": {
+            "description": "User registered successfully"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "dsak789"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "StrongPass@123"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Sai Ajith Kumar"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password",
+                  "name"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/login": {
+      "post": {
+        "tags": [
+          "User Authentication"
+        ],
+        "summary": "Login user",
+        "description": "",
+        "responses": {
           "200": {
-            "description": "OK"
+            "description": "User Loggedin successfully"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "dsak789"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "StrongPass@123"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/changePassword": {
+      "post": {
+        "tags": [
+          "User Authentication"
+        ],
+        "summary": "Change user password",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "User password changed successfully"
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "dsak789"
+                  },
+                  "oldpassword": {
+                    "type": "string",
+                    "example": "OldStrongPass@123"
+                  },
+                  "newpassword": {
+                    "type": "string",
+                    "example": "NewStrongPass@123"
+                  },
+                  "cnfpassword": {
+                    "type": "string",
+                    "example": "NewStrongPass@123"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/getUsers": {
+      "get": {
+        "tags": [
+          "User Authentication"
+        ],
+        "summary": "Get users",
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
